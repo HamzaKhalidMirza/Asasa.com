@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #488aff;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -74,6 +74,30 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** appGreen **/
+  --ion-color-appGreen: #25bda4;
+  --ion-color-appGreen-rgb: 37,189,164;
+  --ion-color-appGreen-contrast: #ffffff;
+  --ion-color-appGreen-contrast-rgb: 0,0,0;
+  --ion-color-appGreen-shade: #21a690;
+  --ion-color-appGreen-tint: #3bc4ad;
+
+  /** appBlue **/
+  --ion-color-appBlue: #4181a8;
+  --ion-color-appBlue-rgb: 65,129,168;
+  --ion-color-appBlue-contrast: #ffffff;
+  --ion-color-appBlue-contrast-rgb: 255,255,255;
+  --ion-color-appBlue-shade: #397294;
+  --ion-color-appBlue-tint: #548eb1;
+
+  /** appGreen **/
+  --ion-color-asasaBlue: #0a6492;
+  --ion-color-asasaBlue-rgb: 10,100,146;
+  --ion-color-asasaBlue-contrast: #ffffff;
+  --ion-color-asasaBlue-contrast-rgb: 255,255,255;
+  --ion-color-asasaBlue-shade: #095880;
+  --ion-color-asasaBlue-tint: #23749d;
 }
 
 @media (prefers-color-scheme: dark) {

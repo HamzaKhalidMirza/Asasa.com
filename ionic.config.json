@@ -1,5 +1,7 @@
 {
-  "name": "asasa-real-estate",
-  "integrations": {},
+  "name": "AsasaRealEstate",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
