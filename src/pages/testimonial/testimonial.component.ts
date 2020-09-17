@@ -50,7 +50,7 @@ export class TestimonialComponent implements OnInit {
     return this.ngForm.get("message");
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log("ionViewDidLoad TestimonialPage");
     this.user = JSON.parse(localStorage.getItem("user"));
   }
@@ -82,7 +82,7 @@ export class TestimonialComponent implements OnInit {
     this.service.addTestimonial(data).subscribe(
       (data) => {
         this.closeModal();
-        this.service.toast(JSON.parse(data._body).message);
+        this.service.toast(data.message);
       },
       (error) => {}
     );

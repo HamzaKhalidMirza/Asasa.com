@@ -17,9 +17,11 @@
             <p>{{userData?.name}}</p>
             <p>{{userData?.email}}</p>
     
-            <p (click)="editProfile()" class="edit">
-              Edit Profile
-            </p>
+            <ion-menu-toggle>
+              <p (click)="editProfile()" class="edit">
+                Edit Profile
+              </p>                
+            </ion-menu-toggle>
           </ion-col>
         </ion-row>
     
@@ -46,35 +48,38 @@
           </span>
         </div>
     
-        <ion-item *ngIf="!loggedIn" class="item" (click)="login()" no-lines>
-          <img item-start src="assets/imgs/login.png" /> Sign In
-        </ion-item>
+        <ion-menu-toggle>
+          <ion-item *ngIf="!loggedIn" class="item" (click)="login()" no-lines>
+            <img item-start src="assets/imgs/login.png" /> Sign In
+          </ion-item>
+          </ion-menu-toggle>
         <hr *ngIf="!loggedIn" />
     
-        <ion-item menuClose class="item" (click)="architect()" no-lines>
-          <img item-start src="assets/imgs/architecture.png" /> Construction &
-          Architecture
-        </ion-item>
+        <ion-menu-toggle>
+          <ion-item menuClose class="item" (click)="architect()" no-lines>
+            <img item-start src="assets/imgs/architecture.png" /> Construction &
+            Architecture
+          </ion-item>
+          </ion-menu-toggle>
         <hr />
-        <!--  *************** For Future ***************  -->
-        <!-- <ion-item menuClose class="item" (click)="projects()" no-lines>
-          <img item-start src="assets/imgs/project.png" /> Discover New Projects
-         
-        </ion-item>
-        <hr /> -->
-        <!--  *************** For Future ***************  -->
-        <ion-item (click)="openSellForm()" class="item" no-lines>
-          <img item-start src="assets/imgs/listproperty.png" /> Sell/Rent Out Your
-          Property
-        </ion-item>
+
+        <ion-menu-toggle>
+          <ion-item (click)="openSellForm()" class="item" no-lines>
+            <img item-start src="assets/imgs/listproperty.png" /> Sell/Rent Out Your
+            Property
+          </ion-item>
+          </ion-menu-toggle>
     
         <hr />
-        <ion-item (click)="contactUs()" class="item" no-lines>
-          <img item-start src="assets/imgs/contactus.png" /> Contact Us
-        </ion-item>
+        <ion-menu-toggle>
+          <ion-item (click)="contactUs()" class="item" no-lines>
+            <img item-start src="assets/imgs/contactus.png" /> Contact Us
+          </ion-item>
+          </ion-menu-toggle>
     
         <hr />
-        <ion-item
+        <ion-menu-toggle>
+          <ion-item
           menuClose
           (click)="openTestimonial()"
           *ngIf="loggedIn"
@@ -84,8 +89,10 @@
           <img item-start src="assets/imgs/review.png" /> Testimonials
           <ion-badge>{{ favouriteCount }}</ion-badge>
         </ion-item>
+          </ion-menu-toggle>
         <hr *ngIf="loggedIn" />
-        <ion-item
+        <ion-menu-toggle>
+          <ion-item
           menuClose
           (click)="openFavourites()"
           *ngIf="loggedIn"
@@ -95,16 +102,22 @@
           <img item-start src="assets/imgs/favourite.png" /> Favourites
           <ion-badge>{{ favouriteCount }}</ion-badge>
         </ion-item>
+          </ion-menu-toggle>
         <hr *ngIf="loggedIn" />
-        <ion-item menuClose (click)="rateUsActionSheet()" class="item" no-lines>
-          <img item-start src="assets/imgs/star.png" /> Rate us
-        </ion-item>
+        <ion-menu-toggle>
+          <ion-item menuClose (click)="rateUsActionSheet()" class="item" no-lines>
+            <img item-start src="assets/imgs/star.png" /> Rate us
+          </ion-item>
+          </ion-menu-toggle>
         <hr />
-        <ion-item menuClose (click)="locateUs()" class="item" no-lines>
-          <img item-start src="assets/imgs/pin.png" /> Locate us
-        </ion-item>
+        <ion-menu-toggle>
+          <ion-item menuClose (click)="locateUs()" class="item" no-lines>
+            <img item-start src="assets/imgs/pin.png" /> Locate us
+          </ion-item>
+        </ion-menu-toggle>
         <hr />
-        <ion-item
+        <ion-menu-toggle>
+          <ion-item
           *ngIf="loggedIn"
           (click)="logout()"
           menuClose
@@ -113,34 +126,10 @@
         >
           <img item-start src="assets/imgs/logout.png" /> Logout
         </ion-item>
+        </ion-menu-toggle>
       </ion-content>
     </ion-menu>
     
-
-    <!-- <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu> -->
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

@@ -1,3 +1,4 @@
+import { SharedModule } from './../../app/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { FavouriteAdsPage } from './favourite-ads.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FavouriteAdsPageRoutingModule
+    FavouriteAdsPageRoutingModule,
+    SharedModule
   ],
   declarations: [FavouriteAdsPage]
 })

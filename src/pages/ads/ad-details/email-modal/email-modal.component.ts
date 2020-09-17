@@ -60,7 +60,7 @@ export class EmailModalComponent implements OnInit {
     return this.ngForm.get("message");
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.adData = this.navParams.get("adDetail");
     this.architectData = this.navParams.get("architectDetail");
     var contact = this.navParams.data.contact;

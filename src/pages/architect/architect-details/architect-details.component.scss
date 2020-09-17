@@ -1,0 +1,140 @@
+ion-toolbar {
+  --background: #f7f7f7 !important;
+}
+.coverPic {
+  height: 14rem;
+  overflow: hidden !important;
+  img {
+    height: 14rem;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.profilePic {
+  position: absolute;
+  height: 10rem;
+  overflow: hidden !important;
+  width: 10rem;
+  border-radius: 20rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 17px 0px #2a5067;
+  background: white;
+  border: 2px solid #2a5067;
+  img {
+    height: 10rem;
+    overflow: hidden !important;
+    width: 10rem;
+    border-radius: 20rem;
+    object-fit: contain;
+  }
+}
+
+.head {
+  padding: 1rem;
+  margin-top: 6rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.details {
+  text-align: center;
+  border-top: 1px solid rgba(42, 80, 103, 1);
+  border-bottom: 1px solid rgba(42, 80, 103, 1);
+  margin: 0;
+  padding: 1rem;
+  font-size: 15px;
+
+  // box-shadow: 0px 13px 17px -10px rgba(42, 80, 103, 1);
+}
+
+.galleryhead {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 0px) {
+  .images {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 420px) {
+  .images {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 720px) {
+  .images {
+    column-count: 4;
+  }
+}
+
+.one-image {
+  margin: 2px;
+  position: relative;
+  p {
+    margin: 0;
+    background: rgba(37, 189, 164, 1);
+    padding: 0.5rem;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    // margin-bottom: 2rem;
+    // margin-top: -4px;
+  }
+}
+
+ion-icon {
+  font-size: 3rem;
+  padding: 0rem 1rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 1rem;
+  ion-button {
+    height: 2rem;
+    --border-color: #0a6492;
+    --color: #0a6492;
+  }
+
+  ion-button.activated {
+    background-color: #0a6492;
+    color: #fff;
+  }
+}
+
+.empty {
+  p {
+    text-align: center;
+    font-size: 3rem;
+    font-family: initial;
+    color: #b70000;
+  }
+}
+
+.expertise {
+  ion-badge {
+    margin: 0.5rem;
+  }
+}
+
+.closeIcon {
+  filter: brightness(0);
+  padding: 1rem;
+  margin: 0rem !important;
+  height: 3rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}

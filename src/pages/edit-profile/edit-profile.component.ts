@@ -43,7 +43,7 @@ export class EditProfileComponent implements OnInit {
     this.ngForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      email: ['', [Validators.required]]
+      email: ['', [Validators.required, Validators.email]]
     });
 
     this.ngForm.patchValue({name: this.user.name});
@@ -129,7 +129,7 @@ export class EditProfileComponent implements OnInit {
     this.service.updateUser(data, this.file, this.user._id).subscribe(
       (res) => {
         loading.dismiss();
-        var data = JSON.parse(res._body);
+        var data = res;
         console.log(data);
         this.saveData(JSON.stringify(data.user));
         this.service.toast("Updated Successfully!");

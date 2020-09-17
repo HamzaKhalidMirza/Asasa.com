@@ -82,7 +82,7 @@ export class SellComponent implements OnInit {
     return this.ngForm.get("message");
   }
 
-  ionViewDidLoad() {}
+  ionViewDidEnter() {}
 
   closeModal() {
     this.modalCtrl.dismiss();
