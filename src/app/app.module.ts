@@ -1,3 +1,9 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginPageModule } from './../pages/login/login.module';
+import { LocateUsComponent } from './../pages/locate-us/locate-us.component';
+import { TestimonialComponent } from './../pages/testimonial/testimonial.component';
+import { SellComponent } from './../pages/sell/sell.component';
+import { EditProfileComponent } from './../pages/edit-profile/edit-profile.component';
 import { HomePageModule } from './../pages/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -25,18 +31,33 @@ import { CodePush } from "@ionic-native/code-push/ngx";
 import { SmsRetriever } from "@ionic-native/sms-retriever/ngx";
 import { LaunchReview } from "@ionic-native/launch-review/ngx";
 import { Facebook } from "@ionic-native/facebook/ngx";
+import { FilterModalComponent } from 'src/pages/filter-modal/filter-modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterModalComponent,
+    EditProfileComponent,
+    SellComponent,
+    TestimonialComponent,
+    LocateUsComponent
   ],
-  entryComponents: [],
+  entryComponents: [
+    FilterModalComponent,
+    EditProfileComponent,
+    SellComponent,
+    TestimonialComponent,
+    LocateUsComponent
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HomePageModule
+    HomePageModule,
+    LoginPageModule
   ],
   providers: [
     StatusBar,

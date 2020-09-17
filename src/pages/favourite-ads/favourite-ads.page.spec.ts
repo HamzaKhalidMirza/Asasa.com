@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FavouriteAdsComponent } from './favourite-ads.component';
+import { FavouriteAdsPage } from './favourite-ads.page';
 
-describe('FavouriteAdsComponent', () => {
-  let component: FavouriteAdsComponent;
-  let fixture: ComponentFixture<FavouriteAdsComponent>;
+describe('FavouriteAdsPage', () => {
+  let component: FavouriteAdsPage;
+  let fixture: ComponentFixture<FavouriteAdsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FavouriteAdsComponent ],
+      declarations: [ FavouriteAdsPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FavouriteAdsComponent);
+    fixture = TestBed.createComponent(FavouriteAdsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

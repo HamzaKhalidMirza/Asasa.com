@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren: () => import('../pages/projects/projects.module').then( m => m.ProjectsPageModule)
+  },
+  {
+    path: 'favourite-ads',
+    loadChildren: () => import('../pages/favourite-ads/favourite-ads.module').then( m => m.FavouriteAdsPageModule)
   }
 
 ];
