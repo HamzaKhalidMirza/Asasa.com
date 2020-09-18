@@ -284,13 +284,14 @@ export class AppComponent implements OnInit {
     edit.present();
   }
 
-  onCancel(e) {
+  onCancel() {
+    console.log('Hello');
     this.service.getAdByRefId(this.myInput).subscribe(
       (res) => {
         this.openDetails(res.property);
       },
       (err) => {
-        this.service.toast(JSON.parse(err._body).message);
+        this.service.toast(err.error.message);
       }
     );
   }

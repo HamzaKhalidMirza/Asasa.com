@@ -9,11 +9,13 @@
     
         <ion-row *ngIf="userData" class="profile">
           <ion-col size="5" class="profilePic">
-            <img
+            <ion-avatar>
+              <ion-img
               [src]="userData?.image?.fileLocation ? userData?.image?.fileLocation : 'https://asasa.com/assets/images/profile_picture.jpg'"
-            />
+            ></ion-img>
+            </ion-avatar>
           </ion-col>
-          <ion-col size="7">
+          <ion-col size="7" class="col-7">
             <p>{{userData?.name}}</p>
             <p>{{userData?.email}}</p>
     
@@ -28,52 +30,52 @@
         <div class="searchBar">
           <span class="in">
             <ion-input
-              item-start
+              [(ngModel)]="myInput"
               name="myInput"
               placeholder="Search by Property ID"
               type="number"
             >
             </ion-input>
     
-            <button
-              ion-button
-              icon-only
-              item-end
+            <ion-button
+              slot="icon-only"
               (click)="onCancel()"
               type="submit"
               [disabled]="!myInput"
             >
               <ion-icon name="search"></ion-icon>
-            </button>
+            </ion-button>
           </span>
         </div>
     
         <ion-menu-toggle>
           <ion-item *ngIf="!loggedIn" class="item" (click)="login()" no-lines>
-            <img item-start src="assets/imgs/login.png" /> Sign In
+            <img item-start src="assets/imgs/login.png" />
+            <ion-label>Sign In</ion-label>
           </ion-item>
           </ion-menu-toggle>
         <hr *ngIf="!loggedIn" />
     
         <ion-menu-toggle>
           <ion-item menuClose class="item" (click)="architect()" no-lines>
-            <img item-start src="assets/imgs/architecture.png" /> Construction &
-            Architecture
+            <img item-start src="assets/imgs/architecture.png" />
+            <ion-label>Construction & Architecture</ion-label>
           </ion-item>
           </ion-menu-toggle>
         <hr />
 
         <ion-menu-toggle>
           <ion-item (click)="openSellForm()" class="item" no-lines>
-            <img item-start src="assets/imgs/listproperty.png" /> Sell/Rent Out Your
-            Property
+            <img item-start src="assets/imgs/listproperty.png" />
+            <ion-label>Sell/Rent Out Your Property</ion-label>
           </ion-item>
           </ion-menu-toggle>
     
         <hr />
         <ion-menu-toggle>
           <ion-item (click)="contactUs()" class="item" no-lines>
-            <img item-start src="assets/imgs/contactus.png" /> Contact Us
+            <img item-start src="assets/imgs/contactus.png" />
+            <ion-label>Contact Us</ion-label>
           </ion-item>
           </ion-menu-toggle>
     
@@ -86,7 +88,8 @@
           class="item"
           no-lines
         >
-          <img item-start src="assets/imgs/review.png" /> Testimonials
+          <img item-start src="assets/imgs/review.png" /> 
+          <ion-label>Testimonials</ion-label>
           <ion-badge>{{ favouriteCount }}</ion-badge>
         </ion-item>
           </ion-menu-toggle>
@@ -99,20 +102,23 @@
           class="item"
           no-lines
         >
-          <img item-start src="assets/imgs/favourite.png" /> Favourites
+          <img item-start src="assets/imgs/favourite.png" /> 
+          <ion-label>Favourites</ion-label>
           <ion-badge>{{ favouriteCount }}</ion-badge>
         </ion-item>
           </ion-menu-toggle>
         <hr *ngIf="loggedIn" />
         <ion-menu-toggle>
           <ion-item menuClose (click)="rateUsActionSheet()" class="item" no-lines>
-            <img item-start src="assets/imgs/star.png" /> Rate us
+            <img item-start src="assets/imgs/star.png" />
+            <ion-label>Rate us</ion-label>
           </ion-item>
           </ion-menu-toggle>
         <hr />
         <ion-menu-toggle>
           <ion-item menuClose (click)="locateUs()" class="item" no-lines>
-            <img item-start src="assets/imgs/pin.png" /> Locate us
+            <img item-start src="assets/imgs/pin.png" /> 
+            <ion-label>Locate us</ion-label>
           </ion-item>
         </ion-menu-toggle>
         <hr />
@@ -124,7 +130,8 @@
           class="item"
           no-lines
         >
-          <img item-start src="assets/imgs/logout.png" /> Logout
+          <img src="assets/imgs/logout.png" />
+          <ion-label>Logout</ion-label>
         </ion-item>
         </ion-menu-toggle>
       </ion-content>
