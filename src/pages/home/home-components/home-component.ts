@@ -1,11 +1,9 @@
-import { HomePage } from "./../home.page";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import {
   NavController,
   MenuController,
   ModalController,
 } from "@ionic/angular";
-import { AdsViewComponent } from "../../ads";
 import { FilterService } from "../../../app/services/filterService";
 import { FilterModalComponent } from "../../filter-modal/filter-modal.component";
 import { Service } from "../../../app/services/service";
@@ -14,9 +12,11 @@ import { HomeSearchModalPage } from "./search/search-modal";
 @Component({
   selector: "page-home-components",
   templateUrl: "home-component.html",
+  styleUrls: ["home-component.scss"]
 })
 export class HomeComponentPage implements OnInit {
-  @ViewChild("myTabs") tabRef;
+
+  @ViewChild("myTabs") tabRef: ElementRef;
   selectedCity: any;
   sateliteView: boolean = false;
   address: any;
@@ -27,8 +27,6 @@ export class HomeComponentPage implements OnInit {
   adsData: any;
   adsFiltered: any;
   markerss = [];
-  tab1 = HomePage;
-  tab2 = AdsViewComponent;
   purpose: any;
 
   location: any;
@@ -74,14 +72,15 @@ export class HomeComponentPage implements OnInit {
   async searchModal() {
     let searchModal = await this.modalCtrl.create({component: HomeSearchModalPage});
     searchModal.onDidDismiss().then(async (data: any) => {
-      if (data) {
-        if (!data.city) this.city = data.city;
-        if (!data.location) this.formattedAddress = data.location;
-        this.filters = data;
+      if (data.data) {
+        console.log(data);
+        if (!data.data.city) this.city = data.data.city;
+        if (!data.data.location) this.formattedAddress = data.data.location;
+        this.filters = data.data;
 
-        await this.outputFilters(data);
+        await this.outputFilters(data.data);
 
-        this.locationData = data;
+        this.locationData = data.data;
         if (this.locationData.location && this.locationData.city) {
           this.city = this.locationData.city.city;
           this.formattedAddress = this.locationData.location.location;
@@ -111,23 +110,25 @@ export class HomeComponentPage implements OnInit {
 
   isMap: boolean = true;
   getSelectedTab() {
-    if (this.tabRef.getSelected().tabTitle == "Map") {
-      this.isMap = true;
-    } else if (this.tabRef.getSelected().tabTitle == "List") {
-      this.isMap = false;
-    }
+    console.log('Selected');
+    // if (this.tabRef.getSelected().tabTitle == "Map") {
+    //   this.isMap = true;
+    // } else if (this.tabRef.getSelected().tabTitle == "List") {
+    //   this.isMap = false;
+    // }
   }
 
   async filterModal() {
+    // console.log(this.tabRef.getSelected());
     let filterModal = await this.modalCtrl.create({
       component: FilterModalComponent,
       cssClass: "asasa-modal",
     });
     filterModal.onDidDismiss().then((data: any) => {
-      if (data) {
+      if (data.data) {
         this.filterService.filteredAds = [];
 
-        this.filter(data.filter);
+        this.filter(data.data.filter);
       }
     });
     filterModal.present();

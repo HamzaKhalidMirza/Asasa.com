@@ -1,10 +1,12 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
 
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu menuId="side-menu" contentId="main-content" type="overlay">
       <ion-content class="sideMenu">
         <div *ngIf="!userData" class="profile">
-          <img src="assets/imgs/asasa.png" />
+          <div class="asasa-logo">
+            <img src="assets/imgs/asasa.png" />
+          </div>
         </div>
     
         <ion-row *ngIf="userData" class="profile">

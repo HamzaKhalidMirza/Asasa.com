@@ -1,32 +1,31 @@
 ion-content {
-  position: fixed;
-}
-.scroll {
-  height: 100%;
+  position: relative;
 }
 
 #map {
   width: 100%;
   height: 100%;
-  z-index: 4 !important;
+  z-index: 1 !important;
 }
 
 .footerDetail {
   position: absolute;
   bottom: 0;
+  width: 100%;
   z-index: 5 !important;
   background: white;
+  padding: 0.5rem;
   img {
-    width: 1rem;
+    width: 0.6rem;
   }
-  [size="4"] {
+  .col-4 {
     display: flex;
     align-items: center;
     height: 6vw;
     p {
       padding-left: 0.5rem;
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 10px;
+      color: #111;
     }
   }
 }
@@ -120,4 +119,38 @@ ion-content {
   100% {
     margin-left: 250px;
   }
+}
+
+.homeBtns {
+  position: absolute;
+  top: 10rem;
+  left: 15px;
+  transform: translate(0, -50%);
+  z-index: 200;
+
+  ion-button {
+    outline: none;
+    --background: #0a6492;
+  }
+}
+ion-icon {
+  color: white;
+}
+
+.mapView {
+  z-index: 5 !important;
+  border-radius: 5px;
+  height: 2em;
+  font-size: 1.4rem;
+
+  background-color: #0a6492;
+  padding: 0;
+  margin: 5px 0;
+  width: 5rem;
+}
+.satelite {
+  color: white !important;
+}
+.roadmap {
+  color: #25bda4 !important;
 }

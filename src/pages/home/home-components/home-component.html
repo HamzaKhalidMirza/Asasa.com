@@ -1,17 +1,19 @@
 <ion-header>
-  <ion-row class="menuRow" col-12>
-    <ion-col col-2>
-      <button class="menuBtn" menuToggle icon-only>
-        <ion-icon name="menu"></ion-icon>
+  <ion-row class="menuRow">
+    <ion-col size="2" class="col-2">
+      <button class="menuBtn">
+        <ion-menu-button>
+          <ion-icon name="menu-sharp" size="large"></ion-icon>
+        </ion-menu-button>
       </button>
     </ion-col>
-    <ion-col col-10>
+    <ion-col size="10" class="col-10">
       <div (click)="searchModal()" class="search_block">
         <div class="filterBadges">
           <div class="cityBadge">
-            <ion-badge class="search" *ngIf="!city"
-              ><ion-icon name="search"></ion-icon> Search...</ion-badge
-            >
+            <ion-badge class="search" *ngIf="!city">
+              <ion-icon name="search"></ion-icon> Search...
+            </ion-badge>
             <ion-badge> {{ city | titlecase}} &nbsp;</ion-badge>
           </div>
           <div *ngIf="formattedAddress" class="location">
@@ -27,7 +29,6 @@
           >
         </div>
       </div>
-
       <img
         class="closeIcon"
         *ngIf="formattedAddress || city"
@@ -38,44 +39,21 @@
   </ion-row>
 </ion-header>
 <ion-content>
-  <ion-tabs #myTabs tabsLayout="icon-start" tabsPlacement="top">
-    <ion-tab-bar>
-      <ion-tab-button
-      tabIcon="map"
-      (ionSelect)="getSelectedTab()"
-      tabTitle="Map"
-      [root]="tab1"
-    ></ion-tab-button>
-    <ion-tab-button
-      tabIcon="list"
-      (ionSelect)="getSelectedTab()"
-      tabTitle="List"
-      [root]="tab2"
-    ></ion-tab-button>
-    <ion-tab-button
-      tabIcon="ios-funnel-outline"
-      tabTitle="Filter"
-      (ionSelect)="filterModal()"
-    ></ion-tab-button>
+  <ion-tabs #myTabs>
+    <ion-tab-bar slot="top" class="tabbar show-tabbar">
+      <ion-tab-button (selected)="getSelectedTab()" tab="map" class="tab-button">
+        <ion-label><ion-icon name="map-sharp"></ion-icon> <span>Map</span></ion-label>
+      </ion-tab-button>
+      <ion-tab-button (select)="getSelectedTab()" tab="ads" class="tab-button">
+        <ion-label><ion-icon name="list-outline"></ion-icon> <span>List</span></ion-label>
+      </ion-tab-button>
+      <ion-tab-button (click)="filterModal()" class="tab-button">
+        <ion-label><ion-icon name="filter-sharp"></ion-icon> <span>Filter</span></ion-label>
+      </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
 
   <div class="btnAds"></div>
 
   <div class="select_block"></div>
-
-  <div class="homeBtns">
-    <button
-      *ngIf="isMap"
-      (click)="changeMapView()"
-      ion-button
-      class="mapView"
-      icon-only
-    >
-      <ion-icon
-        [ngClass]="{ satelite: !sateliteView, roadmap: sateliteView }"
-        name="md-globe"
-      ></ion-icon>
-    </button>
-  </div>
 </ion-content>

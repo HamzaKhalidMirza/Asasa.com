@@ -38,9 +38,9 @@ export class FavouriteAdsPage implements OnInit {
       // console.log(item);
       this.processingData[index]["fav"] = false;
       if (localStorage.getItem("favourites"))
-        if (JSON.parse(localStorage.getItem("favourites")).length > 0) {
+        if (localStorage.getItem("favourites").length > 0) {
           if (
-            JSON.parse(localStorage.getItem("favourites")).includes(
+            localStorage.getItem("favourites").includes(
               JSON.stringify(item._id)
             )
           ) {

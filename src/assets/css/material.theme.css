@@ -22,11 +22,11 @@
   .ng-select-container
   .ng-value-container
   .ng-placeholder {
-  color: rgba(0, 0, 0, 0.38);
+  color: rgba(0, 0, 0, 0.1);
 }
 .ng-select.ng-select-disabled .ng-arrow-wrapper .ng-arrow,
 .ng-select.ng-select-disabled .ng-clear-wrapper {
-  color: rgba(0, 0, 0, 0.38);
+  color: #0a9266;
 }
 .ng-select.ng-select-focused .ng-select-container:after {
   border-color: #3f51b5;
@@ -65,9 +65,12 @@
   transition: border-color 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
 }
 .ng-select .ng-select-container .ng-value-container {
+  color: #0a9266;
   align-items: baseline;
   padding: 0.4375em 0;
   border-top: 0.84375em solid transparent;
+  font-size: 14px;
+  font-weight: 200;
 }
 .ng-select .ng-select-container .ng-value-container .ng-placeholder {
   position: absolute;
@@ -111,8 +114,8 @@
   .ng-value-container
   .ng-value
   .ng-value-label {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 400;
 }
 .ng-select.ng-select-multiple
   .ng-select-container
@@ -165,10 +168,13 @@
   border-right: 5px solid transparent;
   border-top: 5px solid;
   margin: 0 4px;
-  color: rgba(0, 0, 0, 0.54);
+  color: #0a9266;
 }
 .ng-select .ng-spinner-zone {
   top: 3px;
+}
+.ng-select .ng-clear-wrapper {
+  color: #0a9266;
 }
 .ng-dropdown-panel {
   background: #fff;
@@ -210,14 +216,14 @@
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup.ng-option-marked {
   background: rgba(0, 0, 0, 0.04);
-  color: rgba(0, 0, 0, 0.87);
+  color: #0a9266;
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup.ng-option-disabled {
-  color: rgba(0, 0, 0, 0.54);
+  color: #0a9266;
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup.ng-option-selected {
   background: rgba(0, 0, 0, 0.12);
-  color: #3f51b5;
+  color: #0a9266;
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
   line-height: 3em;
@@ -229,18 +235,18 @@
   text-align: left;
   text-decoration: none;
   position: relative;
-  color: rgba(0, 0, 0, 0.87);
+  color: #0a9266;
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
   background: rgba(0, 0, 0, 0.04);
-  color: rgba(0, 0, 0, 0.87);
+  color: #0a9266;
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
   background: rgba(0, 0, 0, 0.12);
-  color: #3f51b5;
+  color: #0a9266;
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-disabled {
-  color: rgba(0, 0, 0, 0.38);
+  color: #0a9266;
 }
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-child {
   padding-left: 32px;
@@ -249,5 +255,5 @@
   padding-right: 5px;
   font-size: 80%;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.38);
+  color: #0a9266;
 }

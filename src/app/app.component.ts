@@ -161,9 +161,7 @@ export class AppComponent implements OnInit {
         this.loginCheck = false;
         this.loggedIn = true;
         this.userData = JSON.parse(localStorage.getItem("user"));
-        this.service.favourites = JSON.parse(
-          localStorage.getItem("favourites")
-        ).length;
+        this.service.favourites = localStorage.getItem("favourites").length;
 
         this.loginService.userData = this.userData;
       }

@@ -15,6 +15,7 @@ export class MapService {
   constructor() {}
 
   addOverLay(map, bounds, imgLoc) {
+    console.log(map);
     this.mapBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(bounds.lat0, bounds.lng0),
       new google.maps.LatLng(bounds.lat1, bounds.lng1)

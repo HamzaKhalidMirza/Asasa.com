@@ -29,7 +29,7 @@ import { ProjectsPageModule } from "../projects/projects.module";
     ArchitectPageModule,
     ProjectsPageModule
   ],
-  declarations: [HomePage, HomeComponentPage, HomeSearchModalPage],
-  entryComponents: [HomePage, HomeComponentPage, HomeSearchModalPage]
+  declarations: [HomePage, HomeSearchModalPage],
+  entryComponents: [HomePage, HomeSearchModalPage]
 })
 export class HomePageModule {}

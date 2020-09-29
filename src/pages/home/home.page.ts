@@ -19,7 +19,7 @@ declare var MarkerClusterer: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
 
@@ -81,9 +81,6 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  async ionViewCanEnter() {
     this.purpose = this.filterService.purpose;
     this.filterService.purposeChange.subscribe((res) => {
       this.purpose = res;
@@ -110,8 +107,8 @@ export class HomePage implements OnInit {
     this.service.emitMapView.subscribe((res) => {
       this.changeMapView();
     });
-    this.service.emitLoader.subscribe(() => {
-      this.loading = this.loadingCtrl.create({
+    this.service.emitLoader.subscribe(async () => {
+      this.loading = await this.loadingCtrl.create({
         message: this.customContent,
         cssClass: `myloading-wrapper`,
         spinner: null,
@@ -121,7 +118,10 @@ export class HomePage implements OnInit {
     });
   }
 
-  ionViewDidLoad() {
+  async ionViewWillEnter() {
+  }
+
+  ionViewDidEnter() {
     if (!this.map) {
       this.latLng = new google.maps.LatLng(33.6844, 73.0479);
       this.generateMap();
@@ -167,61 +167,61 @@ export class HomePage implements OnInit {
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader1'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time < 20 && this.time > 10) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader2'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time < 30 && this.time > 20) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader3'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time <= 40 && this.time > 30) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader4'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time <= 50 && this.time > 40) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader5'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time <= 60 && this.time > 50) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader6'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time <= 70 && this.time > 60) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader7'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time <= 80 && this.time > 70) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader8'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time <= 90 && this.time > 80) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader9'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         } else if (this.time <= 100 && this.time > 90) {
           this.customContent =
             " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
             this.time +
             "%</div><div  class='customLoader10'></div></div>";
-          this.loading.setContent(this.customContent);
+          this.loading.message = this.customContent;
         }
       }
     }, 200);
@@ -356,7 +356,7 @@ export class HomePage implements OnInit {
           " <div class='custom-spinner-container'><div class='custom-spinner-box'>" +
           this.time +
           "%</div><div  class='customLoader10'></div></div>";
-        this.loading.setContent(this.customContent);
+        this.loading.message = this.customContent;
 
         this.loading.dismiss().then(() => {
           this.time = 0;

@@ -1,7 +1,16 @@
 <ion-icon
+  *ngIf="ad?.fav"
   (click)="favouriteIt(ad._id)"
-  id="{{ad._id}"
+  id="{ad._id}"
   class="favourite"
-  [ngClass]="{ 'ion-ios-heart': ad?.fav, 'ion-ios-heart-outline': !ad?.fav }"
+  name="heart"
+>
+</ion-icon>
+<ion-icon
+  *ngIf="!ad?.fav"
+  (click)="favouriteIt(ad._id)"
+  id="{ad._id}"
+  class="favourite"
+  name="heart-outline"
 >
 </ion-icon>

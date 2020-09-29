@@ -1,14 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button>
-        <ion-menu-button color="primary"></ion-menu-button>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div
+    *ngIf="loadingElement"
+    #loadingProgressG_1
+    id="loadingProgressG_1"
+    class="loadingProgressG"
+  ></div>
 
+  <div #map id="map"></div>
+
+  <ion-row
+    *ngIf="filters && filters?.type == 'all'"
+    class="footerDetail"
+  >
+    <ion-col size="4" class="col-4" *ngIf="purpose == 'Buy'"
+      ><img src="assets/icon/resplotsale.png" />
+      <p>Residential Plot</p></ion-col
+    >
+    <ion-col size="4" class="col-4" *ngIf="purpose == 'Buy'"
+      ><img src="assets/icon/complotsale.png" />
+      <p>Commercial Plot</p></ion-col
+    >
+
+    <ion-col size="4" class="col-4"
+      ><img src="assets/icon/cmsale.png" />
+      <p>Commercial</p></ion-col
+    >
+
+    <ion-col size="4" class="col-4"
+      ><img src="assets/icon/houseBadge.png" />
+      <p>Homes</p></ion-col
+    >
+    <ion-col size="4" class="col-4"
+      ><img src="assets/icon/apartmentBadge.png" />
+      <p>Apartment</p></ion-col
+    >
+  </ion-row>
+  
+  <div class="homeBtns">
+    <ion-button
+      (click)="changeMapView()"
+      ion-button
+      class="mapView"
+      icon-only
+    >
+      <ion-icon
+        [ngClass]="{ satelite: !sateliteView, roadmap: sateliteView }"
+        name="globe-outline"
+        size="large"
+      ></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>

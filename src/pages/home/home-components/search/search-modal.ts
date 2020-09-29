@@ -6,6 +6,7 @@ import { Service } from "../../../../app/services/service";
 @Component({
   selector: "page-home-search",
   templateUrl: "search-modal.html",
+  styleUrls: ['search-modal.scss']
 })
 export class HomeSearchModalPage {
   selectedCity: any;
@@ -19,7 +20,7 @@ export class HomeSearchModalPage {
   cities = [];
   locations = [];
   data: any;
-  type: any;
+  type: any = 'Buy';
   Types: any;
   propType: any;
   homes: boolean = true;
@@ -209,7 +210,7 @@ export class HomeSearchModalPage {
     });
   }
 
-  ionViewCanEnter() {
+  ionViewWillEnter() {
     //Remove this line, This is selecting Islamabad initially
     // this.getLocations(1);
 
@@ -248,6 +249,8 @@ export class HomeSearchModalPage {
     this.filterService.purposeChange.subscribe((res) => {
       this.purpose = res;
     });
+
+    console.log(this.locations);
   }
 
   priceValid: boolean = true;
@@ -276,7 +279,7 @@ export class HomeSearchModalPage {
     }
   }
 
-  async ionViewDidLoad() {
+  async ionViewDidEnter() {
     this.getCities();
     this.selectedType = this.areaTypes[0];
     if (this.service.searchParams) {
@@ -452,7 +455,7 @@ export class HomeSearchModalPage {
     this.modalCtrl.dismiss(data);
   }
   changeType(e) {
-    this.filterService.purpose = e._value;
+    this.filterService.purpose = e.detail.value;
     this.filterService.filterByPurpose();
   }
 
@@ -463,7 +466,7 @@ export class HomeSearchModalPage {
   }
 
   changePropType(e, check) {
-    this.propType = e._value;
+    this.propType = e.detail.value;
 
     if (this.propType == "House" || this.propType == "all") {
       this.homes = true;
@@ -480,9 +483,9 @@ export class HomeSearchModalPage {
     this.location = null;
   }
 
-  getLocations(cityId) {
+  async getLocations(cityId) {
     if (!this.service.locations) {
-      this.loading = this.loadingCtrl.create({
+      this.loading = await this.loadingCtrl.create({
         message: "Please wait...",
       });
       this.loading.present();
@@ -518,6 +521,7 @@ export class HomeSearchModalPage {
       this.service.cities = data;
       this.selectedCity = data;
       this.cities = data;
+      console.log(this.cities);
     }),
       (err) => {
         console.error(err);
