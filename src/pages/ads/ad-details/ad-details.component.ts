@@ -17,6 +17,7 @@ import { EmailModalComponent } from "./email-modal/email-modal.component";
 import { ProjectDetailsComponent } from "./../../architect/architect-details/project-details/project-details.component";
 // import { SharePage } from "./share/share";
 // import { SocialSharing } from "@ionic-native/social-sharing";
+import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 
 declare var google;
 
@@ -52,6 +53,7 @@ export class AdDetailsComponent implements OnInit {
   openGalaryCheck: boolean = false;
   features: any = [];
   noVR: boolean = true;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -61,7 +63,7 @@ export class AdDetailsComponent implements OnInit {
     private _sanitizer: DomSanitizer,
     private call: CallNumber,
     private modalCtrl: ModalController,
-    // private sShare: SocialSharing,
+    private sShare: SocialSharing,
     platform: Platform
   ) {
     platform.backButton.subscribe(() => {
@@ -78,9 +80,11 @@ export class AdDetailsComponent implements OnInit {
   async ionViewDidEnter() {
     if (!this.openGalaryCheck) {
       if (this.navParams.get("adDetail")) {
+
         var id = this.navParams.get("adDetail")._id;
-        this.service.addPropertyCount(id).subscribe(() => {});
+        this.service.addPropertyCount(id).subscribe(() => { });
         this.adData = this.navParams.get("adDetail");
+
         if (this.adData.property_Type_Name == "Plot") {
           this.topBar = "map";
         }
@@ -104,11 +108,14 @@ export class AdDetailsComponent implements OnInit {
           );
         }
         // await this.loadMap();
-        console.log(this.map);
         await this.loadMarkerAndOverlay();
         this.getAdById(this.adData._id);
       } else if (this.navParams.get("adDetails")) {
         this.adData = this.navParams.get("adDetails");
+
+        if (!this.adData.three_sixty_link) {
+          this.noVR = false;
+        }
         if (this.adData.property_Type_Name == "Plot") {
           for (let i of this.adData.property_features_plot) {
             if (i.checked) {
@@ -147,7 +154,6 @@ export class AdDetailsComponent implements OnInit {
           );
         }
         // await this.loadMap();
-        console.log(this.map);
         await this.loadMarkerAndOverlay();
       }
     }
@@ -171,7 +177,7 @@ export class AdDetailsComponent implements OnInit {
     this.service.getAdByRefId(id).subscribe(
       (res) => {
         var adData = res.property;
-
+        this.adData = res.property
         this.adData["three_sixty_link"] = adData.three_sixty_link;
 
         if (!this.adData.three_sixty_link) {
@@ -230,21 +236,21 @@ export class AdDetailsComponent implements OnInit {
     porjectDetails.present();
   }
 
-  share() {
-    // this.openGalaryCheck = true;
-    // let sharePage = this.modalCtrl.create(SharePage, {
-    //   cssClass: "asasa-modal",
-    //   adImages: this.adData.images,
-    // });
-    // sharePage.present();
-    // this.sShare;
-    // .share("asd", "asd", "asd")
-    // .then((res) => {
-    //   console.log("positive", res);
-    // })
-    // .catch((err) => {
-    //   console.log("catch", err);
-    // });
+  async share() {
+
+    this.sShare.share(`${this.adData.land_area} ${this.adData.property_unit}, ${this.adData.property_types} in ${this.adData.location_data.location_data.location}, ${this.adData.city.city.city}\n`, null, null, `https://asasa.com/property/${this.adData._id}`)
+      .then(data => {
+        console.log('Shared');
+      })
+      .catch(async (err) => {
+        let toast = await this.service.toastCtrl.create({
+          message: 'Error: ' + err,
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+        console.log(err);
+      });
   }
 
   segmentChanged(e) {}

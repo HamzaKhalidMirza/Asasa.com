@@ -9,28 +9,21 @@
 }
 
 .segmentDiv {
-  height: 50vh;
+  height: 45vh;
 }
-.segment-button {
-  font-family: "TrajanProBold";
-  border-top-color: transparent !important;
-  border-top-left-radius: 0px !important;
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0px !important;
+
+ion-segment {
+  border: 1px solid #3bbca4;
+}
+ion-segment-button {
+  --color-checked: #25bda4;
+  max-width: 100%;
   color: #0a6492 !important;
   border-color: #3bbca4 !important;
-  // text-decoration: underline;
-  height: 3.2rem !important;
-  line-height: 3rem !important;
 }
-.segment .segment-button.segment-activated {
-  color: #0a6492 !important;
-  font-family: "TrajanProBold";
-  background-color: #3bbca4;
-}
-.segment {
-  border: 1px solid #3bbca4;
+.segment-button-checked {
+  background: #25bda4 !important;
+  color: white !important;
 }
 
 .rooms {
@@ -39,11 +32,12 @@
   text-align: center;
   background-color: white;
   img {
-    width: 2rem;
+    width: 1.2rem;
   }
   .col-4 {
     p {
       color: #25bda4;
+      font-size: 0.9rem;
     }
     padding: 6px 0;
   }
@@ -82,11 +76,11 @@
   height: 100%;
 }
 #photos {
-  height: 50vh;
+  height: 45vh;
 }
 
 .swiper-slide img {
-  height: 50vh;
+  height: 45vh;
   object-fit: cover;
 }
 .fixed {
@@ -108,11 +102,10 @@
 }
 
 .heading {
-  margin-bottom: 2px;
   --background: #0a6492;
   font-size: 14px;
   color: white;
-  height: 3.5rem;
+  height: 100%;
   min-height: 2rem;
   #propertyNo {
     font-family: "BankGothicMd";
@@ -135,6 +128,7 @@
 
   .mainDetailBlock {
     margin: 5px 5px 10px 5px;
+    padding: 5px;
     border-radius: 6px;
     box-shadow: 0px 0px 6px 0px #2a5067;
     width: auto !important;
@@ -148,7 +142,7 @@
     margin: 0;
   }
   .price {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     height: 3rem;
     color: #0a6492;
@@ -168,7 +162,7 @@
     align-items: center;
 
     img {
-      height: 2rem;
+      height: 1.2rem;
       padding: 0 0.5rem;
     }
   }
@@ -211,24 +205,24 @@
   color: white;
   position: fixed;
   bottom: 0;
+  width: 100%;
   a {
-    margin: 0 !important;
+    margin: 5px 0 !important;
     align-items: center;
     display: flex;
     justify-content: center;
-    font-size: 1.5rem !important;
-    // border-left: 1px solid white;
+    font-size: 1.1rem !important;
     color: white !important;
     width: 100%;
     text-decoration: none;
   }
   .whatsapp {
-    padding: 0 1rem;
-    height: 3rem;
+    padding: 0 1.2rem;
+    height: 1.7rem;
   }
   ion-icon {
-    font-size: 3rem;
-    padding: 0 1rem;
+    font-size: 1.9rem;
+    padding: 0 1.2rem;
     color: whitesmoke;
   }
 }
@@ -266,7 +260,7 @@
   letter-spacing: 1px;
   background: white;
   img {
-    right: 20px;
+    right: 1.2rem;
     position: absolute;
     width: 2rem;
   }
@@ -275,30 +269,29 @@
 .share {
   margin: 0 10px !important;
 }
+.featuresRow[class="col-4"] {
+  padding: 1rem 1rem;
+}
 .featuresRow {
-  [col-4] {
-    padding: 1rem 1rem;
+  ion-icon {
+    font-weight: bold;
+    color: #4181a8;
+  }
 
-    ion-icon {
-      font-weight: bold;
-      color: #4181a8;
-    }
+  img {
+    width: 2rem;
+  }
+  p {
+    color: #25bda4 !important;
+    text-align: center;
+  }
 
-    img {
-      width: 2rem;
-    }
-    p {
-      color: #25bda4 !important;
-      text-align: center;
-    }
-
-    span {
-      color: #25bda4 !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+  span {
+    color: #25bda4 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 

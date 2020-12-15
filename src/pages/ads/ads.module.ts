@@ -8,8 +8,20 @@ import { EmailModalComponent } from "./ad-details/email-modal/email-modal.compon
 // import { FavouriteComponent, ListViewComponent } from "./components/index";
 
 @NgModule({
-  imports: [PipesModule, SharedModule, FormsModule, ReactiveFormsModule, AdsViewModule],
-  declarations: [AdDetailsComponent,  EmailModalComponent],
-  entryComponents: [AdDetailsComponent,  EmailModalComponent]
+  imports: [
+    PipesModule,
+    SharedModule,
+    FormsModule, 
+    ReactiveFormsModule, 
+    AdsViewModule
+  ],
+  declarations: [
+    AdDetailsComponent,
+    EmailModalComponent
+  ],
+  entryComponents: [
+    AdDetailsComponent,
+    EmailModalComponent
+  ]
 })
-export class AdsModule {}
+export class AdsModule { }

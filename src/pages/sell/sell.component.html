@@ -52,7 +52,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Full Name</ion-label>
+            <ion-label position="stacked">Full Name</ion-label>
             <ion-input
               type="text"
               formControlName="name"
@@ -64,7 +64,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Email</ion-label>
+            <ion-label position="stacked">Email</ion-label>
             <ion-input
               type="email"
               formControlName="email"
@@ -76,7 +76,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Phone</ion-label>
+            <ion-label position="stacked">Phone</ion-label>
             <ion-input
               type="number"
               formControlName="phone"
@@ -88,7 +88,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">City</ion-label>
+            <ion-label position="stacked">City</ion-label>
             <ion-input
               type="text"
               formControlName="city"
@@ -100,7 +100,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Property Detail</ion-label>
+            <ion-label position="stacked">Property Detail</ion-label>
             <ion-input
               formControlName="propertyDetails"
               [class.invalid]="
@@ -119,7 +119,7 @@
               (PropertyType.dirty || PropertyType.touched)
             "
           >
-            <ion-label position="floating">Property type</ion-label>
+            <ion-label position="stacked">Property type</ion-label>
             <ion-select interface="popover" formControlName="propertyType">
               <ion-select-option value="apartment">Apartment</ion-select-option>
               <ion-select-option value="portion">Portion</ion-select-option>
@@ -148,7 +148,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Land Area</ion-label>
+            <ion-label position="stacked">Land Area</ion-label>
             <ion-input
               type="text"
               formControlName="landArea"
@@ -167,7 +167,7 @@
               (LandAreaUnit.dirty || LandAreaUnit.touched)
             "
           >
-            <ion-label position="floating">Area Unit</ion-label>
+            <ion-label position="stacked">Area Unit</ion-label>
             <ion-select interface="popover" formControlName="landAreaUnit">
               <ion-select-option value="kanal">Kanal</ion-select-option>
               <ion-select-option value="marla">Marla</ion-select-option>
@@ -180,7 +180,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Demand</ion-label>
+            <ion-label position="stacked">Demand</ion-label>
             <ion-input
               type="text"
               formControlName="demand"
@@ -194,7 +194,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Type your message here...</ion-label>
+            <ion-label position="stacked">Type your message here...</ion-label>
             <ion-textarea
               rows="5"
               name="message"
@@ -206,6 +206,26 @@
               "
             ></ion-textarea>
           </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item lines="none" (click)="inputFile.click()">
+              <ion-label>Add Property Images (upto 10 images)</ion-label>
+              <ion-icon name="camera" slot="start" class="camera-icon"></ion-icon>
+              <input #inputFile name="file" (change)="onImageSelect($event.target.files)" class="form-control"
+                type="file" placeholder="Add Images" multiple />
+            </ion-item>
+            <ion-row>
+              <ion-col class="ion-padding-none" size="6" size-sm="4" size-md="3" *ngFor="let img of images; let i = index">
+                <div class="property-img">
+                  <img [src]="img" />
+                  <ion-icon name="close" (click)="removeImage(i)"></ion-icon>
+                </div>
+            </ion-col>
+            </ion-row>
+          </ion-list>
         </ion-col>
       </ion-row>
       <ion-row>

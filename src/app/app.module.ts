@@ -32,6 +32,8 @@ import { SmsRetriever } from "@ionic-native/sms-retriever/ngx";
 import { LaunchReview } from "@ionic-native/launch-review/ngx";
 import { Facebook } from "@ionic-native/facebook/ngx";
 import { FilterModalComponent } from 'src/pages/filter-modal/filter-modal.component';
+import { SocialSharing } from "@ionic-native/social-sharing/ngx";
+import { Deeplinks } from "@ionic-native/deeplinks/ngx";
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { FilterModalComponent } from 'src/pages/filter-modal/filter-modal.compon
     Camera,
     NativeStorage,
     CodePush,
+    Deeplinks,
+    SocialSharing,
     SmsRetriever,
     LaunchReview,
     Facebook,

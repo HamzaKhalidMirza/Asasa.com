@@ -34,9 +34,10 @@
         class="telInput"
         type="tel"
         ionicTelInput
+        [ionicTelInputOptions]="{initialCountry: 'pk'}"
         (hasError)="hasError($event)"
         (ionicTelOutput)="getNumber($event)"
-      />
+    />
 
       <p style="color: #888888; font-size: 10px;">
         A 6 digit OPT will be sent via SMS to verify your phone number.
@@ -79,9 +80,9 @@
           <span>Resend OTP</span>
         </p>
 
-        <button class="btn" [disabled]="code?.length<6" ion-button block>
+        <ion-button class="btn" [disabled]="code?.length<6" type="submit" expand="block">
           Verify
-        </button>
+        </ion-button>
       </form>
     </div>
   </div>

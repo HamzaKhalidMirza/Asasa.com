@@ -17,6 +17,9 @@ export class SellComponent implements OnInit {
 
   ngForm: FormGroup;
 
+  images = [];
+  files = [];
+
   constructor(
     private modalCtrl: ModalController,
     private service: Service,
@@ -108,6 +111,7 @@ export class SellComponent implements OnInit {
       landarea_unit: this.LandAreaUnit.value,
       message: this.Message.value,
       purpose: this.purpose,
+      images: this.files
     };
 
     var loading = await this.loadingCtrl.create({
@@ -129,5 +133,28 @@ export class SellComponent implements OnInit {
         this.service.toast(msg);
       }
     );
+  }
+  
+  removeImage(index) {
+    this.images.splice(index, 1);
+  }
+
+  onImageSelect(files: FileList) {
+    if (files.length > 9 || this.images.length > 9) {
+      this.service.toast("Maximum 10 images please.")
+    }
+    else {
+      for (let i = 0; i < files.length; i++) {
+
+        const file = <File>files.item(i);
+        const reader = new FileReader();
+
+        reader.onload = (event: any) => {
+          this.images.push(reader.result);
+          this.files.push(file);
+        };
+        reader.readAsDataURL(files[i]);
+      }
+    }
   }
 }

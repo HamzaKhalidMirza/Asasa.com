@@ -70,8 +70,12 @@ export class LoginPage implements OnInit {
   verifyNumber: boolean = false;
   timeout: boolean;
   async sendVerificationCode() {
+    console.log('Hello');
+    console.log(this.telInput.nativeElement.blur());
     this.telInput.nativeElement.blur();
+    console.log('Hi', this.phone, this.hasErrorBoolean);
     if (this.phone && this.hasErrorBoolean) {
+      console.log('Hi');
       var loading = await this.loadingCtrl.create({
         message: "Please wait...",
       });
@@ -80,8 +84,9 @@ export class LoginPage implements OnInit {
 
       this.service.sendVerificationCode(this.phone).subscribe(
         (res) => {
+          console.log(res);
           loading.dismiss();
-          var res = JSON.parse(res._body);
+          // var res = JSON.parse(res._body);
 
           var data = {
             userId: res.id,
@@ -188,14 +193,14 @@ export class LoginPage implements OnInit {
     this.service.verifyCode(body).subscribe(
       (res) => {
         loading.dismiss();
-        this.service.toast(JSON.parse(res._body).message);
-        const user = JSON.stringify(JSON.parse(res._body).user);
+        this.service.toast(JSON.parse(res.message));
+        const user = JSON.stringify(JSON.parse(res.user));
         this.dismiss();
         this.saveData(user);
       },
       (err) => {
         loading.dismiss();
-        this.errorMessage = JSON.parse(err._body).message;
+        this.errorMessage = JSON.parse(err.message);
         this.service.toastFromTop(this.errorMessage);
         this.code = null;
       }
@@ -217,5 +222,11 @@ export class LoginPage implements OnInit {
   }
   getNumber(event) {
     this.phone = event;
+  }
+  telInputObject(event) {
+    console.log(event);
+  }
+  onCountryChange(event) {
+    console.log(event);
   }
 }

@@ -7,6 +7,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <img src="assets/imgs/comingsoon.png" />
+</ion-content>
+<!-- <ion-content>
   <div class="headerImg">
     <p>
       Asasa.com gives you a platform to visit portfolios of the top-notch
@@ -22,8 +25,8 @@
     placeholder="Search by city..."
     [(ngModel)]="searchInput"
   ></ion-searchbar>
-  <ion-row size="12">
-    <ion-col *ngFor="let arc of architects | filter: 'city':searchInput" size="6">
+  <ion-row col-12>
+    <ion-col *ngFor="let arc of architects | filter: 'city':searchInput" col-6>
       <ion-card
         (click)="openDetails(arc?._id, arc?.image?.fileLocation, arc?.description, arc?.expertise)"
         class="profile"
@@ -40,15 +43,15 @@
         </div>
 
         <div class="view">
-          <button color="dark">
+          <button ion-button round color="dark">
             View Profile
           </button>
         </div>
       </ion-card>
     </ion-col>
 
-    <ion-col *ngIf="notFound" size="12">
+    <ion-col *ngIf="notFound" col-12>
       <img src="assets/icon/404.png" />
     </ion-col>
   </ion-row>
-</ion-content>
+</ion-content> -->

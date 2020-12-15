@@ -30,6 +30,7 @@ import { EditProfileComponent } from "../pages/edit-profile/edit-profile.compone
 import { EmailModalComponent } from "./../pages/ads/ad-details/email-modal/email-modal.component";
 import { LocateUsComponent } from "./../pages/locate-us/locate-us.component";
 import { Router } from '@angular/router';
+import { Deeplinks } from "@ionic-native/deeplinks/ngx";
 
 @Component({
   selector: 'app-root',
@@ -62,7 +63,8 @@ export class AppComponent implements OnInit {
     private codePush: CodePush,
     private network: Network,
     private launchReview: LaunchReview,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private deeplinks: Deeplinks
   ) {
     platform.ready().then(() => {
       // this.rootPage = HomeComponentPage;
@@ -153,6 +155,16 @@ export class AppComponent implements OnInit {
         fb.logEvent("EVENT_NAME_ADDED_TO_WISHLIST");
         fb.logEvent("EVENT_NAME_VIEWED_CONTENT");
         fb.logEvent("EVENT_NAME_ACHIEVED_LEVEL");
+        this.deeplinks.route({ "/property/:id": "" }).subscribe(
+          (match) => {
+          
+            this.myInput = match.$args["id"];
+            this.onCancel("");
+          },
+          (nomatch) => {
+            this.service.toast("Ad does not exist anymore.");
+          }
+        );
       }
 
       this.menu.swipeGesture(false);
@@ -282,18 +294,21 @@ export class AppComponent implements OnInit {
     edit.present();
   }
 
-  onCancel() {
-    console.log('Hello');
+  onCancel(e) {
+
+    console.log("funtion triggerd", this.myInput)
     this.service.getAdByRefId(this.myInput).subscribe(
       (res) => {
+        console.log("getting response")
         this.openDetails(res.property);
       },
       (err) => {
-        this.service.toast(err.error.message);
+        console.log("getting error")
+        this.service.toast(JSON.parse(err._body).message);
       }
     );
   }
-
+  
   async openDetails(info) {
     let detailModal = await this.modalCtrl.create({
       component: AdDetailsComponent,

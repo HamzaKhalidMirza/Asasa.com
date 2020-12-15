@@ -14,6 +14,7 @@ ion-content {
   position: absolute;
   right: 5px;
   top: 10px;
+  z-index: 200;
 }
 
 .logo {
@@ -22,6 +23,7 @@ ion-content {
   margin-top: 12vh;
   img {
     height: 12rem;
+    z-index: 200;
   }
   .circle1 {
     position: absolute;
@@ -31,7 +33,7 @@ ion-content {
     background: #8080807a;
     top: 60px;
     left: 70px;
-    z-index: 1;
+    z-index: 100;
   }
   .circle2 {
     position: absolute;
@@ -41,7 +43,7 @@ ion-content {
     background: #8080807a;
     top: 105px;
     left: 150px;
-    z-index: 1;
+    z-index: 100;
   }
 }
 
@@ -71,7 +73,7 @@ ion-item {
     box-shadow: 0px 0px 6px 0px #2a5067;
     //new design
     width: 100%;
-    margin: 5rem 0rem;
+    margin: 2rem 0rem;
   }
 
   .item-inner {
@@ -81,7 +83,7 @@ ion-item {
 
   ion-item {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     background-color: whitesmoke !important;
     border-radius: 5px;
     box-shadow: 0px 0px 6px 0px #2a5067;
@@ -137,7 +139,7 @@ ion-item {
 
   .resend {
     color: black;
-    margin: 4.5rem 0 3rem;
+    margin: 3rem 0 3rem;
     font-weight: 100;
     span {
       color: black;
@@ -148,7 +150,7 @@ ion-item {
 
   .resendCode {
     line-height: 22px;
-    margin: 4.5rem 0 3rem;
+    margin: 3rem 0 3rem;
     span:nth-child(1) {
       color: #888888;
     }
@@ -182,7 +184,7 @@ ion-item {
   text-align: center;
   color: black;
   font-size: 14px;
-  padding: 2rem 1rem 0rem 1rem;
+  padding: 1rem 1rem 0rem 1rem;
   line-height: 22px;
   span {
     font-size: 26px;
@@ -252,7 +254,7 @@ ion-item {
 }
 
 .customCard {
-  margin: 0rem 2rem 1rem;
+  margin: 0rem 1rem 1rem;
   border-radius: 4px;
   position: relative;
   padding-top: 1rem;
@@ -285,7 +287,7 @@ ion-item {
   border-radius: 35%;
   background-image: linear-gradient(#36ab97, rgba(38, 78, 97, 0.901961));
   animation: wave 15s infinite linear;
-  z-index: -100;
+  z-index: 1;
 }
 
 .wave1 {
@@ -293,7 +295,7 @@ ion-item {
   height: 861px;
   position: absolute;
   top: 72%;
-  z-index: -102;
+  z-index: 1;
   left: 50%;
   margin-left: -649px;
   margin-top: -1096px;

@@ -141,7 +141,26 @@ export class Service {
     return val;
   }
   public saveCustomerProperty(customerAd): Observable<any> {
-    return this.http.post(this.apiUrl + "save_customerProperty", customerAd);
+    const formData: FormData = new FormData();
+    formData.append("email", customerAd.email);
+    formData.append("name", customerAd.name);
+    formData.append("phone", customerAd.phone);
+    formData.append("area", customerAd.area);
+    formData.append("demand", customerAd.demand);
+    formData.append("property_type", customerAd.property_type);
+    formData.append("city", customerAd.city);
+    formData.append("location", customerAd.location);
+    formData.append("landarea_unit", customerAd.landarea_unit);
+    formData.append("message", customerAd.message);
+    formData.append("purpose", customerAd.purpose);
+
+    if (customerAd.images) {
+      for (let i in customerAd.images) {
+        formData.append("images", customerAd.images[i], customerAd.images[i].name);
+      }
+    }
+
+    return this.http.post(this.apiUrl + "save_customerProperty", formData);
   }
 
   public getCityLocations(location): Observable<any> {

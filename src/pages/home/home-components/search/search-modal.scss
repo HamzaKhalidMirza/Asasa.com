@@ -136,6 +136,10 @@ ion-segment {
   }
 }
 
+.purpose ion-segment-button {
+  --color-checked: #25bda4;
+}
+
 .ng-select .ng-select-container .ng-value-container .ng-placeholder {
   font-size: 10px;
 }
@@ -215,8 +219,8 @@ ion-segment {
   padding: 0 1rem;
 
   .outline {
-    --border: 1px solid #116594;
-    --color: #116594;
+    --border: 1px solid #0a6492;
+    --color: #0a6492;
   }
 }
 

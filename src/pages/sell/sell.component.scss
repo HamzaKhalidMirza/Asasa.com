@@ -159,3 +159,41 @@ ion-select {
 .item-cover {
   display: none;
 }
+
+ion-list input[type=file] {
+  display: none;
+}
+ion-list ion-item>ion-label {
+  font-size: 0.8rem;
+}
+.camera-icon {
+  color: #25bda4;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.property-img {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #25bda4;
+
+  img {
+    height: 8rem;
+    width: 20rem;
+    object-fit: cover;
+  }
+  ion-icon {
+    color: #f53d3d;
+    background: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 5px 5px;
+    border-radius: 20px;
+    border: 1px solid #25bda4;
+    margin: 0rem !important;
+    position: absolute;
+    top: 10px;
+    z-index: 20;
+    right: 5%;
+  }
+}
