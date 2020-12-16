@@ -193,14 +193,15 @@ export class LoginPage implements OnInit {
     this.service.verifyCode(body).subscribe(
       (res) => {
         loading.dismiss();
-        this.service.toast(JSON.parse(res.message));
-        const user = JSON.stringify(JSON.parse(res.user));
+        this.service.toast(res.message);
+        const user = JSON.stringify(res.user);
         this.dismiss();
         this.saveData(user);
       },
       (err) => {
         loading.dismiss();
-        this.errorMessage = JSON.parse(err.message);
+        console.log(err);
+        this.errorMessage = err.message;
         this.service.toastFromTop(this.errorMessage);
         this.code = null;
       }

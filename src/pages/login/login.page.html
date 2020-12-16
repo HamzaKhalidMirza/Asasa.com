@@ -56,7 +56,7 @@
 
     <div class="verificationDiv" *ngIf="verifyNumber">
       <form (ngSubmit)="verify()">
-        <ion-item no-lines>
+        <ion-item lines="none">
           <ion-input
             class="ionInput form-control"
             [ngClass]="{ error: errorMessage }"

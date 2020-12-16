@@ -9,6 +9,8 @@ import { Service } from "../../../../app/services/service";
   styleUrls: ['search-modal.scss']
 })
 export class HomeSearchModalPage {
+  
+  isPageLoaded: any = false;
   selectedCity: any;
 
   loading: any;
@@ -211,6 +213,8 @@ export class HomeSearchModalPage {
   }
 
   ionViewWillEnter() {
+    console.log('ionViewWillEnter');
+    this.isPageLoaded = true;
     //Remove this line, This is selecting Islamabad initially
     // this.getLocations(1);
 
@@ -455,8 +459,10 @@ export class HomeSearchModalPage {
     this.modalCtrl.dismiss(data);
   }
   changeType(e) {
-    this.filterService.purpose = e.detail.value;
-    this.filterService.filterByPurpose();
+    if(this.isPageLoaded) {
+      this.filterService.purpose = e.detail.value;
+      this.filterService.filterByPurpose();  
+    }
   }
 
   changeCanEnter() {
