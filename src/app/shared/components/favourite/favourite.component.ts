@@ -148,7 +148,7 @@ export class FavouriteComponent implements OnInit {
     this.service
       .removeFavourite(this.user._id, _id)
       .subscribe((favouriteArray) => {
-        localStorage.setItem("favourites", favouriteArray._body);
+        localStorage.setItem("favourites", favouriteArray);
       });
   }
 
@@ -157,7 +157,7 @@ export class FavouriteComponent implements OnInit {
     this.service
       .addFavourite(this.user._id, _id)
       .subscribe((favouriteArray) => {
-        localStorage.setItem("favourites", favouriteArray._body);
+        localStorage.setItem("favourites", favouriteArray);
       });
   }
 }

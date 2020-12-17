@@ -304,7 +304,7 @@ export class AppComponent implements OnInit {
       },
       (err) => {
         console.log("getting error")
-        this.service.toast(JSON.parse(err._body).message);
+        this.service.toast(err.error.message);
       }
     );
   }

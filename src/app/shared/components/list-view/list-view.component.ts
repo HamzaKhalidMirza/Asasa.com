@@ -29,7 +29,7 @@ export class ListViewComponent implements OnInit {
   doInfinite(infiniteScroll) {
     setTimeout(() => {
       this.infiniteScrollTrigger.emit();
-      infiniteScroll.complete();
+      infiniteScroll.target.complete();
     }, 700);
   }
 
